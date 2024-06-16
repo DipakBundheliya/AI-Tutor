@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.favicon-icon {
+  width: 32px; /* Adjust the desired width */
+  height: 32px; /* Adjust the desired height */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
