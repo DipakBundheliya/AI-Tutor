@@ -16,7 +16,7 @@ const Chat = () => {
       const fetchChatHistory = async () => {
         try {
           const response = await axios.post(
-            "https://ai-totor-b.onrender.com/history",
+            "https://dipakbundheliya-flask-ai-tutor.hf.space/history",
             {
               SessionId: SessionId,
             }
@@ -48,18 +48,24 @@ const Chat = () => {
       let response;
       if (!SessionId) {
         // New session
-        response = await axios.post("https://ai-totor-b.onrender.com/chat", {
-          question: newMessage,
-        });
+        response = await axios.post(
+          "https://dipakbundheliya-flask-ai-tutor.hf.space/chat",
+          {
+            question: newMessage,
+          }
+        );
         const newSessionId = response.data.SessionId;
         Cookies.set("SessionId", newSessionId, { expires: 1 });
         setSessionId(newSessionId);
       } else {
         // Existing session
-        response = await axios.post("https://ai-totor-b.onrender.com/chat", {
-          SessionId: SessionId,
-          question: newMessage,
-        });
+        response = await axios.post(
+          "https://dipakbundheliya-flask-ai-tutor.hf.space/chat",
+          {
+            SessionId: SessionId,
+            question: newMessage,
+          }
+        );
       }
 
       const data = [
